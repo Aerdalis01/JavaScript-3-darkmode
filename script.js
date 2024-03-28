@@ -34,24 +34,31 @@ if(title.innerText === "LIGHT MODE") {
 
 });
 
-const bodyFont = document.querySelector('.hero');
-console.log(bodyFont);
 
-const buttonPlus = document.querySelector('.button-plus');
-console.log(buttonPlus);
 
-const buttonMoins = document.querySelector('.button-moins');
-console.log(buttonMoins);
 
-var t;			
-	t = 1;
+let size = 2
 
-	function changerTaille(modif) {
-		t = t + modif;
-		document.getElementsByTagName("body")[0].style.fontSize = t + "em";		
-	} 	
+btnPlus.addEventListener('click', ()=>{
+  console.log("plus");
+
   
-buttonPlus.addEventListener('click', function(){
-  bodyFont.style.fontSize = "0.5rem" ; 
-});
+  if( size >= 7){
+      title.style.fontSize = '7rem';
+    }else{
+        // on incrémente
+        size = size + 1;
+        title.style.fontSize = `${size}rem`;
+  }
+})
 
+
+
+
+btnMinus.addEventListener("click", () => {
+  console.log("moins");
+
+  // on décrémente
+  size = size - 1;
+  title.style.fontSize = `${size}rem`; 
+});
